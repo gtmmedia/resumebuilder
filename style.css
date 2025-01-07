@@ -6,173 +6,110 @@
 }
 
 body {
-    background-image: linear-gradient(rgb(30, 30, 30), rgb(80, 80, 80));
-    background-attachment: fixed;
-    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to bottom, #2c3e50, #34495e);
+    font-family: 'Arial', sans-serif;
+    color: #f0f0f0;
+    line-height: 1.6;
 }
 
 .resume-builder {
-    padding: 27px 100px;
+    padding: 20px;
 }
 
 .container {
-    padding: 10px 30px;
-    background: rgb(240, 240, 240);
-    border-radius: 10px;
-    height: auto;
-    width: 60%;
+    max-width: 800px;
+    background: #ffffff;
+    color: #333;
     margin: auto;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .container h1 {
     text-align: center;
-    background-color: rgb(50, 50, 50);
-    padding: 10px;
-    color: white;
+    background: #2c3e50;
+    color: #f0f0f0;
+    padding: 15px;
     margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 1.8rem;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
 }
 
 input,
 textarea {
-    background-color: transparent;
-    margin: 10px 0;
-    padding: 5px;
-    outline: none;
-    border: none;
-    border-bottom: 2px solid black;
-    display: block;
     width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: #f9f9f9;
+    color: #333;
+}
+
+textarea {
+    resize: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #2980b9;
+    outline: none;
+    background: #ffffff;
 }
 
 button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
     border: none;
-    background-color: white;
-    padding: 15px;
-    border-radius: 7px;
-    font-weight: bold;
+    border-radius: 5px;
+    background: #2980b9;
+    color: #ffffff;
     cursor: pointer;
-    display: block;
-    margin: auto;
-    margin-bottom: 20px;
+    transition: background 0.3s;
 }
 
 button:hover {
-    font-size: medium;
+    background: #3498db;
+}
+
+.tip {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 10px;
 }
 
 .output-container {
     display: none;
-    width: 60%;
-    margin: 10px auto;
-}
-
-.output {
-    background-color: white;
-    border: 2px solid white;
-    margin-bottom: 10px;
-}
-
-.heading {
-    padding: 20px 10px;
-    text-align: center;
-    color: white;
-    background-color: rgb(50, 50, 50);
-    text-transform: uppercase;
-}
-
-.heading h4 {
-    color: rgb(200, 200, 200);
-    padding-top: 9px;
-}
-
-.info {
-    display: flex;
+    margin: 20px auto;
+    max-width: 800px;
     padding: 20px;
+    background: #ffffff;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.left {
-    width: 40%;
-    border-right: 2px dashed black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.right {
-    width: 60%;
-    padding-left: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.box {
-    margin: 10px 0;
-    padding: 5px 10px;
-    height: auto;
-    overflow-wrap: break-word;
-}
-
-.box h2,
-.box p {
-    margin-bottom: 5px;
-}
-
-.tip {
-    font-size: small;
-    color: gray;
-    text-align: center;
-}
-
-.credit {
-    text-align: center;
-    font-weight: bold;
-    padding: 10px 3px;
-    color: rgb(80, 80, 80);
-}
-
-a {
-    color: black;
-}
-
-a:hover {
-    color: rgb(247, 28, 12);
-    font-weight: bold;
-}
-
-/* media queries begin */
-@media screen and (max-width: 920px) {
+@media (max-width: 768px) {
     .container {
-        width: 100%;
+        padding: 15px;
     }
 
-    .output-container {
-        width: 87%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .resume-builder {
-        padding: 10px 30px;
+    .container h1 {
+        font-size: 1.5rem;
     }
 
-    h1 {
-        font-size: 160%;
-    }
-
-    .info {
-        flex-direction: column;
-    }
-
-    .left {
-        border-right: none;
-        width: 100%;
-    }
-
-    .right {
-        padding-left: 0;
-        width: 100%;
+    button {
+        font-size: 0.9rem;
     }
 }
-
-/* media queries end here */
