@@ -1,7 +1,5 @@
-// script.js
-
 // Selecting elements from the DOM
-const inputField = document.querySelector(".input-field");
+const inputField = document.querySelector(".inputField"); // Fixed class selector
 const mainSection = document.querySelector(".resume-builder");
 const outputContainer = document.querySelector(".output-container");
 
@@ -19,52 +17,56 @@ function createSection(title, content) {
 
 // Function to toggle between input form and resume preview
 function toggleView() {
-    if (isHidden) {
-        // Hide the input form and show the resume preview
-        mainSection.style.display = "none";
-        isHidden = false;
+    try {
+        if (isHidden) {
+            // Hide the input form and show the resume preview
+            mainSection.style.display = "none";
+            isHidden = false;
 
-        const name = inputField["name"].value.trim();
-        const title = inputField["title"].value.trim();
-        const objective = inputField["objective"].value.trim();
-        const skills = inputField["skills"].value.trim();
-        const academicDetails = inputField["academic_details"].value.trim();
-        const contact = inputField["contact"].value.trim();
-        const workExperience = inputField["work_experience"].value.trim();
-        const achievements = inputField["achievements"].value.trim();
-        const projects = inputField["projects"].value.trim();
+            const name = inputField["name"].value.trim();
+            const title = inputField["title"].value.trim();
+            const objective = inputField["objective"].value.trim();
+            const skills = inputField["skills"].value.trim();
+            const academicDetails = inputField["academic_details"].value.trim();
+            const contact = inputField["contact"].value.trim();
+            const workExperience = inputField["work_experience"].value.trim();
+            const achievements = inputField["achievements"].value.trim();
+            const projects = inputField["projects"].value.trim();
 
-        outputContainer.style.display = "block";
-        outputContainer.innerHTML = `
-            <div class="output">
-                <div class="heading">
-                    <h1>${name || "Your Name"}</h1>
-                    <h4>${title || "Your Title/Subheading"}</h4>
-                </div>
-                <div class="info">
-                    <div class="left">
-                        ${createSection("Objective", objective)}
-                        ${createSection("Skills", skills)}
-                        ${createSection("Academic Details", academicDetails)}
-                        ${createSection("Contact", contact)}
+            outputContainer.style.display = "block";
+            outputContainer.innerHTML = `
+                <div class="output">
+                    <div class="heading">
+                        <h1>${name || "Your Name"}</h1>
+                        <h4>${title || "Your Title/Subheading"}</h4>
                     </div>
-                    <div class="right">
-                        ${createSection("Work Experience", workExperience)}
-                        ${createSection("Achievements", achievements)}
-                        ${createSection("Projects", projects)}
+                    <div class="info">
+                        <div class="left">
+                            ${createSection("Objective", objective)}
+                            ${createSection("Skills", skills)}
+                            ${createSection("Academic Details", academicDetails)}
+                            ${createSection("Contact", contact)}
+                        </div>
+                        <div class="right">
+                            ${createSection("Work Experience", workExperience)}
+                            ${createSection("Achievements", achievements)}
+                            ${createSection("Projects", projects)}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <button class="print-btn" onclick="printResume()">Print Resume</button>
-            <button class="edit-btn" onclick="toggleView()">Edit Resume</button>
-        `;
-    } else {
-        // Show the input form and hide the resume preview
-        mainSection.style.display = "block";
-        isHidden = true;
+                <button class="print-btn" onclick="printResume()">Print Resume</button>
+                <button class="edit-btn" onclick="toggleView()">Edit Resume</button>
+            `;
+        } else {
+            // Show the input form and hide the resume preview
+            mainSection.style.display = "block";
+            isHidden = true;
 
-        outputContainer.style.display = "none";
-        outputContainer.innerHTML = "";
+            outputContainer.style.display = "none";
+            outputContainer.innerHTML = "";
+        }
+    } catch (error) {
+        console.error("An error occurred:", error.message);
     }
 }
 
@@ -86,10 +88,3 @@ function printResume() {
     printWindow.document.close();
     printWindow.print();
 }
-
-// Add event listener to handle form submission in the future
-// (e.g., AJAX calls to save resume data to a server)
-inputField.addEventListener("submit", (e) => {
-    e.preventDefault();
-    toggleView();
-});
